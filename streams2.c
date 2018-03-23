@@ -96,10 +96,6 @@ zend_module_entry streams2_module_entry = {
     STANDARD_MODULE_PROPERTIES
 };
 
-#ifdef COMPILE_DL_STREAMS2
-ZEND_GET_MODULE(streams2)
-#endif
-
 PHP_FUNCTION(Open)
 {
     // @todo implement this
@@ -123,3 +119,7 @@ PHP_FUNCTION(exists)
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\exists() not implemented yet...");
 }
+
+#ifdef COMPILE_DL_STREAMS2
+ZEND_GET_MODULE(streams2)
+#endif
