@@ -3,7 +3,21 @@
 #define PHP_STREAMS2_VERSION "1.0"
 #define PHP_STREAMS2_EXTNAME "streams2"
 
+ZEND_BEGIN_ARG_INFO(arginfo_stream_open, 0)
+        ZEND_ARG_INFO(0, uri)
+        ZEND_ARG_INFO(0, mode)
+        ZEND_ARG_INFO(0, options)
+        ZEND_ARG_INFO(0, context)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_register, 0)
+        ZEND_ARG_INFO(0, scheme)
+        ZEND_ARG_INFO(0, factory)
+ZEND_END_ARG_INFO()
+
 static zend_function_entry streams2_functions[] = {
+    ZEND_NS_FE("Stream", Open, arginfo_stream_open)
+    ZEND_NS_FE("Stream\\Transport", register, arginfo_stream_transport_register)
     PHP_FE_END
 };
 
@@ -75,3 +89,15 @@ zend_module_entry streams2_module_entry = {
 #ifdef COMPILE_DL_STREAMS2
 ZEND_GET_MODULE(streams2)
 #endif
+
+PHP_FUNCTION(Open)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Open() not implemented yet...");
+}
+
+PHP_FUNCTION(register)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Transport\\register() not implemented yet...");
+}

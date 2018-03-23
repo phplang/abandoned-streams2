@@ -12,6 +12,7 @@
 #define STREAM_SEEK_END 2
 
 PHP_FUNCTION(Open);
+PHP_FUNCTION(register);
 
 extern zend_module_entry streams2_module_entry;
 #define phpext_streams2_ptr &streams2_module_entry
