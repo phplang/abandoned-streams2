@@ -1,5 +1,5 @@
 --TEST--
-Test that the streams2 extension exists
+Test that the Stream inteface exists and has correct number of required methods
 --FILE--
 <?php
 var_dump(interface_exists('Stream'));

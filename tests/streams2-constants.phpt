@@ -1,5 +1,5 @@
 --TEST--
-Test that the streams2 extension exists
+Test constants are declared correctly
 --FILE--
 <?php
 var_dump(\Stream::SEEK_SET);
