@@ -1,3 +1,5 @@
+*.lo
+*.la
 Makefile.global
 acinclude.m4
 aclocal.m4
@@ -24,5 +26,3 @@ config.status
 libtool
 .libs/
 modules/
-streams2.la
-streams2.lo
