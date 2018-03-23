@@ -7,6 +7,12 @@
 
 #include "php.h"
 
+#define STREAM_SEEK_SET 0
+#define STREAM_SEEK_CUR 1
+#define STREAM_SEEK_END 2
+
+PHP_FUNCTION(Open);
+
 extern zend_module_entry streams2_module_entry;
 #define phpext_streams2_ptr &streams2_module_entry
 

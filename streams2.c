@@ -50,6 +50,10 @@ static PHP_MINIT_FUNCTION(streams2) {
     stream_interface_ce = zend_register_internal_class(&ce);
     stream_interface_ce->ce_flags |= ZEND_ACC_INTERFACE;
 
+    REGISTER_NS_LONG_CONSTANT("Stream", "SEEK_SET", STREAM_SEEK_SET, CONST_CS|CONST_PERSISTENT);
+    REGISTER_NS_LONG_CONSTANT("Stream", "SEEK_CUR", STREAM_SEEK_CUR, CONST_CS|CONST_PERSISTENT);
+    REGISTER_NS_LONG_CONSTANT("Stream", "SEEK_END", STREAM_SEEK_END, CONST_CS|CONST_PERSISTENT);
+
     return (1 == 1) &&
         (SUCCESS == PHP_MINIT(streams2_exceptions)(INIT_FUNC_ARGS_PASSTHRU))
         ? SUCCESS : FAILURE;
