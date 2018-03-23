@@ -15,9 +15,19 @@ ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_register, 0)
         ZEND_ARG_INFO(0, factory)
 ZEND_END_ARG_INFO()
 
+ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_unregister, 0)
+        ZEND_ARG_INFO(0, scheme)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_exists, 0)
+        ZEND_ARG_INFO(0, scheme)
+ZEND_END_ARG_INFO()
+
 static zend_function_entry streams2_functions[] = {
     ZEND_NS_FE("Stream", Open, arginfo_stream_open)
     ZEND_NS_FE("Stream\\Transport", register, arginfo_stream_transport_register)
+    ZEND_NS_FE("Stream\\Transport", unregister, arginfo_stream_transport_unregister)
+    ZEND_NS_FE("Stream\\Transport", exists, arginfo_stream_transport_exists)
     PHP_FE_END
 };
 
@@ -100,4 +110,16 @@ PHP_FUNCTION(register)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\register() not implemented yet...");
+}
+
+PHP_FUNCTION(unregister)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Transport\\unregister() not implemented yet...");
+}
+
+PHP_FUNCTION(exists)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Transport\\exists() not implemented yet...");
 }

@@ -13,6 +13,8 @@
 
 PHP_FUNCTION(Open);
 PHP_FUNCTION(register);
+PHP_FUNCTION(unregister);
+PHP_FUNCTION(exists);
 
 extern zend_module_entry streams2_module_entry;
 #define phpext_streams2_ptr &streams2_module_entry
