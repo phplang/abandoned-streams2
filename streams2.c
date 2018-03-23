@@ -3,12 +3,7 @@
 #define PHP_STREAMS2_VERSION "1.0"
 #define PHP_STREAMS2_EXTNAME "streams2"
 
-static PHP_FUNCTION(Open) {
-    RETURN_STRING("not implemented yet...");
-}
-
 static zend_function_entry streams2_functions[] = {
-    PHP_NS_FE("Stream", Open, NULL)
     PHP_FE_END
 };
 
