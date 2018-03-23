@@ -23,11 +23,32 @@ ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_exists, 0)
         ZEND_ARG_INFO(0, scheme)
 ZEND_END_ARG_INFO()
 
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_register, 0)
+        ZEND_ARG_INFO(0, scheme)
+        ZEND_ARG_INFO(0, factory)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_unregister, 0)
+        ZEND_ARG_INFO(0, scheme)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_exists, 0)
+        ZEND_ARG_INFO(0, scheme)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_getWrapper, 0)
+        ZEND_ARG_INFO(0, scheme)
+ZEND_END_ARG_INFO()
+
 static zend_function_entry streams2_functions[] = {
-    ZEND_NS_FE("Stream", Open, arginfo_stream_open)
-    ZEND_NS_FE("Stream\\Transport", register, arginfo_stream_transport_register)
-    ZEND_NS_FE("Stream\\Transport", unregister, arginfo_stream_transport_unregister)
-    ZEND_NS_FE("Stream\\Transport", exists, arginfo_stream_transport_exists)
+    ZEND_NS_FE(NS_STREAM, Open, arginfo_stream_open)
+    ZEND_NS_NAMED_FE(NS_STREAM_TRANSPORT, register, ZEND_FN(stream_transport_register), arginfo_stream_transport_register)
+    ZEND_NS_NAMED_FE(NS_STREAM_TRANSPORT, unregister, ZEND_FN(stream_transport_unregister), arginfo_stream_transport_unregister)
+    ZEND_NS_NAMED_FE(NS_STREAM_TRANSPORT, exists, ZEND_FN(stream_transport_exists), arginfo_stream_transport_exists)
+    ZEND_NS_NAMED_FE(NS_STREAM_WRAPPER, register, ZEND_FN(stream_wrapper_register), arginfo_stream_wrapper_register)
+    ZEND_NS_NAMED_FE(NS_STREAM_WRAPPER, unregister, ZEND_FN(stream_wrapper_unregister), arginfo_stream_wrapper_unregister)
+    ZEND_NS_NAMED_FE(NS_STREAM_WRAPPER, exists, ZEND_FN(stream_wrapper_exists), arginfo_stream_wrapper_exists)
+    ZEND_NS_NAMED_FE(NS_STREAM_WRAPPER, getWrapper, ZEND_FN(stream_wrapper_getWrapper), arginfo_stream_wrapper_getWrapper)
     PHP_FE_END
 };
 
@@ -74,9 +95,9 @@ static PHP_MINIT_FUNCTION(streams2) {
     stream_interface_ce = zend_register_internal_class(&ce);
     stream_interface_ce->ce_flags |= ZEND_ACC_INTERFACE;
 
-    zend_declare_class_constant_long(stream_interface_ce, "SEEK_SET", strlen("SEEK_SET"), SEEK_SET);
-    zend_declare_class_constant_long(stream_interface_ce, "SEEK_CUR", strlen("SEEK_CUR"), SEEK_CUR);
-    zend_declare_class_constant_long(stream_interface_ce, "SEEK_END", strlen("SEEK_END"), SEEK_END);
+    zend_declare_class_constant_long(stream_interface_ce, "SEEK_SET", strlen("SEEK_SET"), STREAM_SEEK_SET);
+    zend_declare_class_constant_long(stream_interface_ce, "SEEK_CUR", strlen("SEEK_CUR"), STREAM_SEEK_CUR);
+    zend_declare_class_constant_long(stream_interface_ce, "SEEK_END", strlen("SEEK_END"), STREAM_SEEK_END);
 
     return (1 == 1) &&
         (SUCCESS == PHP_MINIT(streams2_exceptions)(INIT_FUNC_ARGS_PASSTHRU))
@@ -102,22 +123,46 @@ PHP_FUNCTION(Open)
     RETURN_STRING("Stream\\Open() not implemented yet...");
 }
 
-PHP_FUNCTION(register)
+PHP_FUNCTION(stream_transport_register)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\register() not implemented yet...");
 }
 
-PHP_FUNCTION(unregister)
+PHP_FUNCTION(stream_transport_unregister)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\unregister() not implemented yet...");
 }
 
-PHP_FUNCTION(exists)
+PHP_FUNCTION(stream_transport_exists)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\exists() not implemented yet...");
+}
+
+PHP_FUNCTION(stream_wrapper_register)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Wrapper\\register() not implemented yet...");
+}
+
+PHP_FUNCTION(stream_wrapper_unregister)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Wrapper\\unregister() not implemented yet...");
+}
+
+PHP_FUNCTION(stream_wrapper_exists)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Wrapper\\exists() not implemented yet...");
+}
+
+PHP_FUNCTION(stream_wrapper_getWrapper)
+{
+    // @todo implement this
+    RETURN_STRING("Stream\\Wrapper\\getWrapper() not implemented yet...");
 }
 
 #ifdef COMPILE_DL_STREAMS2
