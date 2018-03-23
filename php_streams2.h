@@ -1,10 +1,11 @@
 #ifndef PHP_STREAMS2_H
 #define PHP_STREAMS2_H
 
-#define PHP_STREAMS2_VERSION "1.0"
-#define PHP_STREAMS2_EXTNAME "streams2"
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
 
-PHP_FUNCTION(Open);
+#include "php.h"
 
 extern zend_module_entry streams2_module_entry;
 #define phpext_streams2_ptr &streams2_module_entry
