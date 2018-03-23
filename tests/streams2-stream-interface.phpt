@@ -1,9 +1,9 @@
 --TEST--
-Test that the Stream inteface exists and has correct number of required methods
+Test that the Stream interface exists and has correct number of required methods
 --FILE--
 <?php
-var_dump(interface_exists('Stream'));
-class A implements Stream {}
+var_dump(interface_exists(\Stream::class));
+class A implements \Stream {}
 --EXPECTF--
 bool(true)
 

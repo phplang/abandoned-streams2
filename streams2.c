@@ -88,12 +88,22 @@ static zend_function_entry stream_interface_methods[] = {
         PHP_FE_END
 };
 
+static zend_class_entry *wrapper_interface_ce = NULL;
+static zend_function_entry wrapper_interface_methods[] = {
+        PHP_ABSTRACT_ME(ZEND_NS_NAME(NS_STREAM, Wrapper), getName, NULL)
+        PHP_FE_END
+};
+
 static PHP_MINIT_FUNCTION(streams2) {
-    zend_class_entry ce;
+    zend_class_entry ce, ce2;
 
     INIT_CLASS_ENTRY(ce, "Stream", stream_interface_methods);
     stream_interface_ce = zend_register_internal_class(&ce);
     stream_interface_ce->ce_flags |= ZEND_ACC_INTERFACE;
+
+    INIT_NS_CLASS_ENTRY(ce2, NS_STREAM, "Wrapper", wrapper_interface_methods);
+    wrapper_interface_ce = zend_register_internal_class(&ce2);
+    wrapper_interface_ce->ce_flags |= ZEND_ACC_INTERFACE;
 
     zend_declare_class_constant_long(stream_interface_ce, "SEEK_SET", strlen("SEEK_SET"), STREAM_SEEK_SET);
     zend_declare_class_constant_long(stream_interface_ce, "SEEK_CUR", strlen("SEEK_CUR"), STREAM_SEEK_CUR);
