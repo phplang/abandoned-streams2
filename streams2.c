@@ -11,6 +11,17 @@ static zend_class_entry *stream_interface_ce = NULL;
 static zend_function_entry stream_interface_methods[] = {
         PHP_ABSTRACT_ME(Stream, __construct, NULL)
         PHP_ABSTRACT_ME(Stream, getName, NULL)
+        PHP_ABSTRACT_ME(Stream, getUri, NULL)
+        PHP_ABSTRACT_ME(Stream, isOpen, NULL)
+        PHP_ABSTRACT_ME(Stream, read, NULL)
+        PHP_ABSTRACT_ME(Stream, write, NULL)
+        PHP_ABSTRACT_ME(Stream, flush, NULL)
+        PHP_ABSTRACT_ME(Stream, close, NULL)
+        PHP_ABSTRACT_ME(Stream, seek, NULL)
+        PHP_ABSTRACT_ME(Stream, isSeekable, NULL)
+        PHP_ABSTRACT_ME(Stream, stat, NULL)
+        PHP_ABSTRACT_ME(Stream, setOption, NULL)
+        PHP_ABSTRACT_ME(Stream, getStream, NULL)
         PHP_FE_END
 };
 
