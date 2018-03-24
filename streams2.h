@@ -18,6 +18,8 @@ extern zend_class_entry *php_streams2_Exception_ce;
 STREAMS2_EXCEPTIONS(X)
 #undef X
 
+PHP_MINIT_FUNCTION(streams2_stream_interface);
+
 #define NS_STREAM "Stream"
 #define NS_STREAM_TRANSPORT "Stream\\Transport"
 #define NS_STREAM_WRAPPER "Stream\\Wrapper"
