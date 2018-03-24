@@ -23,9 +23,10 @@ Interface [ <internal:streams2> interface Stream ] {
   - Methods [13] {
     Method [ <internal:streams2, ctor> abstract public method __construct ] {
 
-      - Parameters [2] {
+      - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
-        Parameter #1 [ <optional> Stream\Context or NULL $context ]
+        Parameter #1 [ <required> string $mode ]
+        Parameter #2 [ <optional> Stream\Context or NULL $context ]
       }
     }
 

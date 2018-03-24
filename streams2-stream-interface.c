@@ -1,7 +1,8 @@
 #include "streams2.h"
 
-ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_interface_construct, 0, 0, 1)
+ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_interface_construct, 0, 0, 2)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, mode, IS_STRING, 0)
     ZEND_ARG_OBJ_NS_INFO(0, context, "Stream\\Context", 1)
 ZEND_END_ARG_INFO()
 
