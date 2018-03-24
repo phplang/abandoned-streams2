@@ -40,11 +40,6 @@ PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 #define PHP_STREAMS2_CONTEXT_WRITE_FILTER "write_filter"
 #define PHP_STREAMS2_CONTEXT_NOTIFIER "notifier"
 
-#ifndef PHP_NS_ABSTRACT_ME
-# define PHP_NS_ABSTRACT_ME(ns, classname, name, arginfo) \
-         PHP_ABSTRACT_ME(ZEND_NS_NAME(ns, classname), name, arginfo)
-#endif
-
 #ifndef PHP_NS_FE
 # define PHP_NS_FE ZEND_NS_FE
 #endif

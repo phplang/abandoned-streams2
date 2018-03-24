@@ -67,19 +67,19 @@ ZEND_END_ARG_INFO()
 
 static zend_class_entry *wrapper_interface_ce = NULL;
 static zend_function_entry wrapper_interface_methods[] = {
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, getName, arginfo_stream_wrapper_getName)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, open, arginfo_stream_wrapper_open)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, opendir, arginfo_stream_wrapper_opendir)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, stat, arginfo_stream_wrapper_stat)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, unlink, arginfo_stream_wrapper_unlink)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, move, arginfo_stream_wrapper_move)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, copy, arginfo_stream_wrapper_copy)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, mkdir, arginfo_stream_wrapper_mkdir)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, rmdir, arginfo_stream_wrapper_rmdir)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, touch, arginfo_stream_wrapper_touch)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, chmod, arginfo_stream_wrapper_chmod)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, chusr, arginfo_stream_wrapper_chusr)
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, chgrp, arginfo_stream_wrapper_chgrp)
+    PHP_ABSTRACT_ME(Wrapper, getName, arginfo_stream_wrapper_getName)
+    PHP_ABSTRACT_ME(Wrapper, open, arginfo_stream_wrapper_open)
+    PHP_ABSTRACT_ME(Wrapper, opendir, arginfo_stream_wrapper_opendir)
+    PHP_ABSTRACT_ME(Wrapper, stat, arginfo_stream_wrapper_stat)
+    PHP_ABSTRACT_ME(Wrapper, unlink, arginfo_stream_wrapper_unlink)
+    PHP_ABSTRACT_ME(Wrapper, move, arginfo_stream_wrapper_move)
+    PHP_ABSTRACT_ME(Wrapper, copy, arginfo_stream_wrapper_copy)
+    PHP_ABSTRACT_ME(Wrapper, mkdir, arginfo_stream_wrapper_mkdir)
+    PHP_ABSTRACT_ME(Wrapper, rmdir, arginfo_stream_wrapper_rmdir)
+    PHP_ABSTRACT_ME(Wrapper, touch, arginfo_stream_wrapper_touch)
+    PHP_ABSTRACT_ME(Wrapper, chmod, arginfo_stream_wrapper_chmod)
+    PHP_ABSTRACT_ME(Wrapper, chusr, arginfo_stream_wrapper_chusr)
+    PHP_ABSTRACT_ME(Wrapper, chgrp, arginfo_stream_wrapper_chgrp)
     PHP_FE_END
 };
 
