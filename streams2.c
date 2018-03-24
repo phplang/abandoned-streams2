@@ -44,6 +44,7 @@ static PHP_NAMED_FUNCTION(stream_wrapper_register)
     stream_factory.param_count = 0;
     // @todo stream_factory needs passed: string $uri, string $mode, ?\Stream\Context $context = null
 
+    // @todo could also call this lazily?
     if (zend_call_function(&stream_factory, &fci_cache) != SUCCESS) {
         return;
     }
