@@ -1,0 +1,15 @@
+language: php
+php:
+  - 7.2
+  - nightly
+
+before_script:
+  - if [ "$TRAVIS_PHP_VERSION" != 'nightly' ]; then phpenv config-rm xdebug.ini; fi
+
+install:
+  - phpize
+  - ./configure --enable-streams2
+  - make
+
+script:
+  - make test

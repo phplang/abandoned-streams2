@@ -1,7 +1,7 @@
 --TEST--
-Test that the streams2 extension exists
+Test that a stream can be opened
 --FILE--
 <?php
 echo \Stream\Open();
 --EXPECT--
-not implemented yet...
+Stream\Open() not implemented yet...
