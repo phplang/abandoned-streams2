@@ -1,5 +1,5 @@
 --TEST--
-Test that the Stream\StatBuf\Sizable interface exists and has correct method signatures
+Test that the Stream\StatBuf\File interface exists and has correct method signatures
 --FILE--
 <?php
 var_dump(interface_exists(\Stream\StatBuf\File::class));

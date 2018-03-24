@@ -9,7 +9,7 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_statbuf_file_interface_getATime, 0, 0, IS_LONG, 0)
 ZEND_END_ARG_INFO()
 
-static zend_class_entry *statbuf_file_interface_ce = NULL;
+zend_class_entry *statbuf_file_interface_ce = NULL;
 static zend_function_entry statbuf_file_interface_methods[] = {
     PHP_ABSTRACT_ME(File, getCTime, arginfo_statbuf_file_interface_getCTime)
     PHP_ABSTRACT_ME(File, getMTime, arginfo_statbuf_file_interface_getMTime)

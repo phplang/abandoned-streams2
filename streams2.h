@@ -24,11 +24,14 @@ extern zend_class_entry *php_streams2_Exception_ce;
 STREAMS2_EXCEPTIONS(X)
 #undef X
 
+extern zend_class_entry *statbuf_file_interface_ce;
+
 PHP_MINIT_FUNCTION(streams2_stream_interface);
 PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 PHP_MINIT_FUNCTION(streams2_statbuf_interface);
 PHP_MINIT_FUNCTION(streams2_statbuf_sizable_interface);
 PHP_MINIT_FUNCTION(streams2_statbuf_file_interface);
+PHP_MINIT_FUNCTION(streams2_statbuf_posixfile_interface);
 
 #define NS_STREAM "Stream"
 #define NS_STREAM_TRANSPORT "Stream\\Transport"
