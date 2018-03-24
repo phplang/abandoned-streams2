@@ -12,7 +12,7 @@ install:
   - make
 
 script:
-  - make test
+  - php run-tests.php -p `which php` -d extension=`pwd`/modules/streams2.so -g "FAIL,XFAIL,BORK,WARN,LEAK,SKIP" --offline --show-diff --show-slow 1000 --set-timeout 120
 
 after_failure:
   - cat tests/*.diff
