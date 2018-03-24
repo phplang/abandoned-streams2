@@ -29,8 +29,34 @@ static PHP_NAMED_FUNCTION(stream_transport_exists)
 
 static PHP_NAMED_FUNCTION(stream_wrapper_register)
 {
-    // @todo implement this
-    RETURN_STRING("Stream\\Wrapper\\register() not implemented yet...");
+    char *scheme;
+    size_t scheme_len;
+    zend_fcall_info stream_factory;
+    zend_fcall_info_cache fci_cache;
+    zval stream;
+
+    ZEND_PARSE_PARAMETERS_START(2, 2)
+        Z_PARAM_STRING(scheme, scheme_len)
+        Z_PARAM_FUNC(stream_factory, fci_cache)
+    ZEND_PARSE_PARAMETERS_END();
+
+    stream_factory.retval = &stream;
+    stream_factory.param_count = 0;
+    // @todo stream_factory needs passed: string $uri, string $mode, ?\Stream\Context $context = null
+
+    if (zend_call_function(&stream_factory, &fci_cache) != SUCCESS) {
+        return;
+    }
+
+    // @todo if (!$stream implements \Stream)
+    if (Z_TYPE(stream) != IS_OBJECT) {
+        // @todo better exception type..
+        zend_throw_error(NULL, "Factory did not return something implementing Stream");
+    }
+
+    // @todo do something with the scheme&stream............
+
+    RETURN_TRUE
 }
 
 static PHP_NAMED_FUNCTION(stream_wrapper_unregister)

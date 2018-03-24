@@ -49,7 +49,7 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_interface_getStream, 0, 0, Stream, 0)
 ZEND_END_ARG_INFO()
 
-static zend_class_entry *stream_interface_ce = NULL;
+zend_class_entry *stream_interface_ce = NULL;
 static zend_function_entry stream_interface_methods[] = {
     PHP_ABSTRACT_ME(Stream, __construct, arginfo_stream_interface_construct)
     PHP_ABSTRACT_ME(Stream, getName, arginfo_stream_interface_getName)

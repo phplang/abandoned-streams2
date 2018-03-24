@@ -25,6 +25,7 @@ STREAMS2_EXCEPTIONS(X)
 #undef X
 
 extern zend_class_entry *statbuf_file_interface_ce;
+extern zend_class_entry *stream_interface_ce;
 
 PHP_MINIT_FUNCTION(streams2_stream_interface);
 PHP_MINIT_FUNCTION(streams2_wrapper_interface);
