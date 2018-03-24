@@ -8,10 +8,7 @@ var_dump(interface_exists(\Stream::class));
 bool(true)
 Interface [ <internal:streams2> interface Stream ] {
 
-  - Constants [3] {
-    Constant [ public int%S SEEK_SET ] { 0 }
-    Constant [ public int%S SEEK_CUR ] { 1 }
-    Constant [ public int%S SEEK_END ] { 2 }
+  - Constants [0] {
   }
 
   - Static properties [0] {
