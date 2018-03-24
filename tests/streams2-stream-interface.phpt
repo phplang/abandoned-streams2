@@ -9,9 +9,9 @@ bool(true)
 Interface [ <internal:streams2> interface Stream ] {
 
   - Constants [3] {
-    Constant [ public integer SEEK_SET ] { 0 }
-    Constant [ public integer SEEK_CUR ] { 1 }
-    Constant [ public integer SEEK_END ] { 2 }
+    Constant [ public int%s SEEK_SET ] { 0 }
+    Constant [ public int%s SEEK_CUR ] { 1 }
+    Constant [ public int%s SEEK_END ] { 2 }
   }
 
   - Static properties [0] {
@@ -50,13 +50,13 @@ Interface [ <internal:streams2> interface Stream ] {
 
       - Parameters [0] {
       }
-      - Return [ boolean ]
+      - Return [ bool%s ]
     }
 
     Method [ <internal:streams2> abstract public method read ] {
 
       - Parameters [1] {
-        Parameter #0 [ <optional> integer $maxbytes ]
+        Parameter #0 [ <optional> int%s $maxbytes ]
       }
       - Return [ string ]
     }
@@ -66,14 +66,14 @@ Interface [ <internal:streams2> interface Stream ] {
       - Parameters [1] {
         Parameter #0 [ <required> string $data ]
       }
-      - Return [ integer ]
+      - Return [ int%s ]
     }
 
     Method [ <internal:streams2> abstract public method flush ] {
 
       - Parameters [0] {
       }
-      - Return [ boolean ]
+      - Return [ bool%s ]
     }
 
     Method [ <internal:streams2> abstract public method close ] {
@@ -86,17 +86,17 @@ Interface [ <internal:streams2> interface Stream ] {
     Method [ <internal:streams2> abstract public method seek ] {
 
       - Parameters [2] {
-        Parameter #0 [ <required> integer $pos ]
-        Parameter #1 [ <optional> integer $whence ]
+        Parameter #0 [ <required> int%s $pos ]
+        Parameter #1 [ <optional> int%s $whence ]
       }
-      - Return [ boolean ]
+      - Return [ bool%s ]
     }
 
     Method [ <internal:streams2> abstract public method isSeekable ] {
 
       - Parameters [0] {
       }
-      - Return [ boolean ]
+      - Return [ bool%s ]
     }
 
     Method [ <internal:streams2> abstract public method stat ] {
@@ -108,10 +108,10 @@ Interface [ <internal:streams2> interface Stream ] {
     Method [ <internal:streams2> abstract public method setOption ] {
 
       - Parameters [2] {
-        Parameter #0 [ <required> integer $option ]
+        Parameter #0 [ <required> int%s $option ]
         Parameter #1 [ <required> $value ]
       }
-      - Return [ boolean ]
+      - Return [ bool%s ]
     }
 
     Method [ <internal:streams2> abstract public method getStream ] {
