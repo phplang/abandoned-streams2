@@ -13,3 +13,6 @@ install:
 
 script:
   - make test
+
+after_failure:
+  - cat tests/*.diff
