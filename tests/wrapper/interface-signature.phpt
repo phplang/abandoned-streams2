@@ -42,7 +42,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
 
       - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
-        Parameter #1 [ <optional> int%s $flags ]
+        Parameter #1 [ <optional> int%S $flags ]
         Parameter #2 [ <optional> $context ]
       }
       - Return [ Stream ]
@@ -52,7 +52,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
 
       - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
-        Parameter #1 [ <optional> int%s $flags ]
+        Parameter #1 [ <optional> int%S $flags ]
         Parameter #2 [ <optional> $context ]
       }
     }
@@ -62,7 +62,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
       - Parameters [1] {
         Parameter #0 [ <required> string $uri ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method move ] {
@@ -71,7 +71,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
         Parameter #0 [ <required> string $from ]
         Parameter #1 [ <required> string $to ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method copy ] {
@@ -80,17 +80,17 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
         Parameter #0 [ <required> string $from ]
         Parameter #1 [ <required> string $to ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method mkdir ] {
 
       - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
-        Parameter #1 [ <optional> boolean $recursive ]
-        Parameter #2 [ <optional> integer $mode ]
+        Parameter #1 [ <optional> bool%S $recursive ]
+        Parameter #2 [ <optional> int%S $mode ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method rmdir ] {
@@ -98,7 +98,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
       - Parameters [1] {
         Parameter #0 [ <required> string $uri ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method touch ] {
@@ -106,16 +106,16 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
       - Parameters [1] {
         Parameter #0 [ <required> string $uri ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method chmod ] {
 
       - Parameters [2] {
         Parameter #0 [ <required> string $uri ]
-        Parameter #1 [ <required> int%s $mode ]
+        Parameter #1 [ <required> int%S $mode ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method chusr ] {
@@ -124,7 +124,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
         Parameter #0 [ <required> string $uri ]
         Parameter #1 [ <required> string $user ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
 
     Method [ <internal:streams2> abstract public method chgrp ] {
@@ -133,7 +133,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
         Parameter #0 [ <required> string $uri ]
         Parameter #1 [ <required> string $group ]
       }
-      - Return [ bool%s ]
+      - Return [ bool%S ]
     }
   }
 }
