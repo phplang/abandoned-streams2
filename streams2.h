@@ -3,6 +3,12 @@
 
 #include "php_streams2.h"
 
+PHP_MINIT_FUNCTION(streams2_context);
+extern zend_class_entry *php_streams2_Context_ce;
+extern zend_class_entry *php_streams2_TContext_ce;
+extern zend_class_entry *php_streams2_Filter_ce;
+extern zend_class_entry *php_streams2_NotificationListener_ce;
+
 #define STREAMS2_EXCEPTIONS(X) \
     X(NotFound) \
     X(ConnectionReset) \
@@ -24,10 +30,15 @@ PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 #define NS_STREAM "Stream"
 #define NS_STREAM_TRANSPORT "Stream\\Transport"
 #define NS_STREAM_WRAPPER "Stream\\Wrapper"
+#define NS_STREAM_CONTEXT "Stream\\Context"
 
 #define STREAM_SEEK_SET 0
 #define STREAM_SEEK_CUR 1
 #define STREAM_SEEK_END 2
+
+#define PHP_STREAMS2_CONTEXT_READ_FILTER "read_filter"
+#define PHP_STREAMS2_CONTEXT_WRITE_FILTER "write_filter"
+#define PHP_STREAMS2_CONTEXT_NOTIFIER "notifier"
 
 #ifndef PHP_NS_ABSTRACT_ME
 # define PHP_NS_ABSTRACT_ME(ns, classname, name, arginfo) \
@@ -36,6 +47,10 @@ PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 
 #ifndef PHP_NS_FE
 # define PHP_NS_FE ZEND_NS_FE
+#endif
+
+#ifndef PHP_NS_NAME
+# define PHP_NS_NAME ZEND_NS_NAME
 #endif
 
 #ifndef PHP_NS_NAMED_FE
