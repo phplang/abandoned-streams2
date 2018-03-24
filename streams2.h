@@ -26,11 +26,17 @@ STREAMS2_EXCEPTIONS(X)
 #define STREAM_SEEK_CUR 1
 #define STREAM_SEEK_END 2
 
-#define PHP_NS_NAMED_FE(ns, name, alias, arginfo) ZEND_NS_NAMED_FE(ns, name, ZEND_FN(alias), arginfo)
-#define PHP_NS_ABSTRACT_ME(ns, classname, name, arginfo) PHP_ABSTRACT_ME(ZEND_NS_NAME(ns, classname), name, arginfo)
+#ifndef PHP_NS_ABSTRACT_ME
+# define PHP_NS_ABSTRACT_ME(ns, classname, name, arginfo) \
+         PHP_ABSTRACT_ME(ZEND_NS_NAME(ns, classname), name, arginfo)
+#endif
 
 #ifndef PHP_NS_FE
-#define PHP_NS_FE ZEND_NS_FE
+# define PHP_NS_FE ZEND_NS_FE
+#endif
+
+#ifndef PHP_NS_NAMED_FE
+# define PHP_NS_NAMED_FE ZEND_NS_NAMED_FE
 #endif
 
 #define ZEND_ARG_OBJ_NS_INFO(byref, name, cls, nullable) \

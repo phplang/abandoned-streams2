@@ -9,43 +9,43 @@ static PHP_FUNCTION(Open)
     RETURN_STRING("Stream\\Open() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_transport_register)
+static PHP_NAMED_FUNCTION(stream_transport_register)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\register() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_transport_unregister)
+static PHP_NAMED_FUNCTION(stream_transport_unregister)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\unregister() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_transport_exists)
+static PHP_NAMED_FUNCTION(stream_transport_exists)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Transport\\exists() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_wrapper_register)
+static PHP_NAMED_FUNCTION(stream_wrapper_register)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Wrapper\\register() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_wrapper_unregister)
+static PHP_NAMED_FUNCTION(stream_wrapper_unregister)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Wrapper\\unregister() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_wrapper_exists)
+static PHP_NAMED_FUNCTION(stream_wrapper_exists)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Wrapper\\exists() not implemented yet...");
 }
 
-static PHP_FUNCTION(stream_wrapper_getWrapper)
+static PHP_NAMED_FUNCTION(stream_wrapper_getWrapper)
 {
     // @todo implement this
     RETURN_STRING("Stream\\Wrapper\\getWrapper() not implemented yet...");
