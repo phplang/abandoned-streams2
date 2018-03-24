@@ -136,9 +136,82 @@ static zend_function_entry stream_interface_methods[] = {
     PHP_FE_END
 };
 
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_open, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, mode)
+    ZEND_ARG_INFO(0, context)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_opendir, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, flags)
+    ZEND_ARG_INFO(0, context)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_stat, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, flags)
+    ZEND_ARG_INFO(0, context)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_unlink, 0)
+    ZEND_ARG_INFO(0, uri)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_move, 0)
+    ZEND_ARG_INFO(0, from)
+    ZEND_ARG_INFO(0, to)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_copy, 0)
+    ZEND_ARG_INFO(0, from)
+    ZEND_ARG_INFO(0, to)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_mkdir, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, recursive)
+    ZEND_ARG_INFO(0, mode)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_rmdir, 0)
+    ZEND_ARG_INFO(0, uri)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_touch, 0)
+    ZEND_ARG_INFO(0, touch)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_chmod, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, mode)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_chusr, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, user)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_chgrp, 0)
+    ZEND_ARG_INFO(0, uri)
+    ZEND_ARG_INFO(0, group)
+ZEND_END_ARG_INFO()
+
 static zend_class_entry *wrapper_interface_ce = NULL;
 static zend_function_entry wrapper_interface_methods[] = {
     PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, getName, NULL)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, open, arginfo_stream_wrapper_open)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, opendir, arginfo_stream_wrapper_opendir)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, stat, arginfo_stream_wrapper_stat)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, unlink, arginfo_stream_wrapper_unlink)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, move, arginfo_stream_wrapper_move)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, copy, arginfo_stream_wrapper_copy)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, mkdir, arginfo_stream_wrapper_mkdir)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, rmdir, arginfo_stream_wrapper_rmdir)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, touch, arginfo_stream_wrapper_touch)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, chmod, arginfo_stream_wrapper_chmod)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, chusr, arginfo_stream_wrapper_chusr)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, chgrp, arginfo_stream_wrapper_chgrp)
     PHP_FE_END
 };
 
