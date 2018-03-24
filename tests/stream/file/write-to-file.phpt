@@ -8,5 +8,5 @@ var_dump(file_get_contents("/tmp/foo"));
 --EXPECT--
 string(11) "Hello world"
 --CLEAN--
+<?php
 unlink("/tmp/foo");
-
