@@ -26,6 +26,7 @@ STREAMS2_EXCEPTIONS(X)
 
 PHP_MINIT_FUNCTION(streams2_stream_interface);
 PHP_MINIT_FUNCTION(streams2_wrapper_interface);
+PHP_MINIT_FUNCTION(streams2_statbuf_interface);
 
 #define NS_STREAM "Stream"
 #define NS_STREAM_TRANSPORT "Stream\\Transport"
