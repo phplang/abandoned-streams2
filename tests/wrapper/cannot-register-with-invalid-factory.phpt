@@ -1,5 +1,5 @@
 --TEST--
-Test registering/unregistering a wrapper
+You should not be able to register a wrapper using a factory that does not return a Stream
 --FILE--
 <?php
 $scheme = 'foo';
