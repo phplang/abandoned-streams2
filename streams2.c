@@ -138,7 +138,7 @@ static zend_function_entry stream_interface_methods[] = {
 
 static zend_class_entry *wrapper_interface_ce = NULL;
 static zend_function_entry wrapper_interface_methods[] = {
-    PHP_ABSTRACT_ME(ZEND_NS_NAME(NS_STREAM, Wrapper), getName, NULL)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, getName, NULL)
     PHP_FE_END
 };
 
