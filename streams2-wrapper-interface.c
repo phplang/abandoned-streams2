@@ -16,51 +16,51 @@ ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_opendir, 0, 1, Str
 ZEND_END_ARG_INFO()
 
 // @todo this should have return type \Stream\StatBuf but does not exist yet
-ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_wrapper_stat, 0, 0, 0)
+ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_wrapper_stat, 0, 0, 1)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, flags, IS_LONG, 0)
     ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_unlink, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_unlink, 0, 1, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_move, 0, 2, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_move, 0, 2, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, from, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, to, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_copy, 0, 2, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_copy, 0, 2, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, from, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, to, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_mkdir, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_mkdir, 0, 1, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, recursive, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, mode, IS_LONG, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_rmdir, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_rmdir, 0, 1, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_touch, 0, 1, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_touch, 0, 1, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_chmod, 0, 2, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_chmod, 0, 2, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, mode, IS_LONG, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_chusr, 0, 2, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_chusr, 0, 2, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, user, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_chgrp, 0, 2, _IS_BOOL, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_chgrp, 0, 2, _IS_BOOL, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, group, IS_STRING, 0)
 ZEND_END_ARG_INFO()

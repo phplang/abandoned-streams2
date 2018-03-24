@@ -3,8 +3,137 @@ Test that the Wrapper interface exists and has correct number of required method
 --FILE--
 <?php
 var_dump(interface_exists(\Stream\Wrapper::class));
-class A implements \Stream\Wrapper {}
+\ReflectionClass::export(\Stream\Wrapper::class);
 --EXPECTF--
 bool(true)
+Interface [ <internal:streams2> interface Stream\Wrapper ] {
 
-Fatal error: Class A contains 13 abstract methods and must therefore be declared abstract or implement the remaining methods (Stream\Wrapper::getName, Stream\Wrapper::open, Stream\Wrapper::opendir, ...) in %s on line %d
+  - Constants [0] {
+  }
+
+  - Static properties [0] {
+  }
+
+  - Static methods [0] {
+  }
+
+  - Properties [0] {
+  }
+
+  - Methods [13] {
+    Method [ <internal:streams2> abstract public method getName ] {
+
+      - Parameters [0] {
+      }
+      - Return [ string ]
+    }
+
+    Method [ <internal:streams2> abstract public method open ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <required> string $mode ]
+        Parameter #2 [ <optional> $context ]
+      }
+      - Return [ Stream ]
+    }
+
+    Method [ <internal:streams2> abstract public method opendir ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <optional> integer $flags ]
+        Parameter #2 [ <optional> $context ]
+      }
+      - Return [ Stream ]
+    }
+
+    Method [ <internal:streams2> abstract public method stat ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <optional> integer $flags ]
+        Parameter #2 [ <optional> $context ]
+      }
+    }
+
+    Method [ <internal:streams2> abstract public method unlink ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> string $uri ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method move ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> string $from ]
+        Parameter #1 [ <required> string $to ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method copy ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> string $from ]
+        Parameter #1 [ <required> string $to ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method mkdir ] {
+
+      - Parameters [3] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <optional> boolean $recursive ]
+        Parameter #2 [ <optional> integer $mode ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method rmdir ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> string $uri ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method touch ] {
+
+      - Parameters [1] {
+        Parameter #0 [ <required> string $uri ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method chmod ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <required> integer $mode ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method chusr ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <required> string $user ]
+      }
+      - Return [ boolean ]
+    }
+
+    Method [ <internal:streams2> abstract public method chgrp ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <required> string $uri ]
+        Parameter #1 [ <required> string $group ]
+      }
+      - Return [ boolean ]
+    }
+  }
+}
