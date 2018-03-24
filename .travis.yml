@@ -1,0 +1,15 @@
+language: php
+php:
+  - 7.2
+  - nightly
+
+before_script:
+  - phpenv config-rm xdebug.ini
+
+install:
+  - phpize
+  - ./configure --enable-streams2
+  - make
+
+script:
+  - make test
