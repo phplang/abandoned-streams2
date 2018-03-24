@@ -32,9 +32,9 @@ PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 #define NS_STREAM_WRAPPER "Stream\\Wrapper"
 #define NS_STREAM_CONTEXT "Stream\\Context"
 
-#define STREAM_SEEK_SET 0
-#define STREAM_SEEK_CUR 1
-#define STREAM_SEEK_END 2
+#define PHP_STREAMS2_STREAM_SEEK_SET 0
+#define PHP_STREAMS2_STREAM_SEEK_CUR 1
+#define PHP_STREAMS2_STREAM_SEEK_END 2
 
 #define PHP_STREAMS2_CONTEXT_READ_FILTER "read_filter"
 #define PHP_STREAMS2_CONTEXT_WRITE_FILTER "write_filter"

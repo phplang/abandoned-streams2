@@ -73,9 +73,9 @@ PHP_MINIT_FUNCTION(streams2_stream_interface) {
     stream_interface_ce = zend_register_internal_class(&ce);
     stream_interface_ce->ce_flags |= ZEND_ACC_INTERFACE;
 
-    zend_declare_class_constant_long(stream_interface_ce, "SEEK_SET", strlen("SEEK_SET"), STREAM_SEEK_SET);
-    zend_declare_class_constant_long(stream_interface_ce, "SEEK_CUR", strlen("SEEK_CUR"), STREAM_SEEK_CUR);
-    zend_declare_class_constant_long(stream_interface_ce, "SEEK_END", strlen("SEEK_END"), STREAM_SEEK_END);
+    zend_declare_class_constant_long(stream_interface_ce, "SEEK_SET", strlen("SEEK_SET"), PHP_STREAMS2_STREAM_SEEK_SET);
+    zend_declare_class_constant_long(stream_interface_ce, "SEEK_CUR", strlen("SEEK_CUR"), PHP_STREAMS2_STREAM_SEEK_CUR);
+    zend_declare_class_constant_long(stream_interface_ce, "SEEK_END", strlen("SEEK_END"), PHP_STREAMS2_STREAM_SEEK_END);
 
     return SUCCESS;
 }
