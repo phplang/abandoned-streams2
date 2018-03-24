@@ -24,6 +24,8 @@ PHP_FUNCTION(stream_wrapper_unregister);
 PHP_FUNCTION(stream_wrapper_exists);
 PHP_FUNCTION(stream_wrapper_getWrapper);
 
+#define PHP_NS_NAMED_FE(ns, name, alias, args) ZEND_NS_NAMED_FE(ns, name, ZEND_FN(alias), args)
+
 extern zend_module_entry streams2_module_entry;
 #define phpext_streams2_ptr &streams2_module_entry
 
