@@ -3,6 +3,9 @@
 
 #include "php_streams2.h"
 
+PHP_MINIT_FUNCTION(streams2_file);
+extern zend_class_entry *php_streams2_File_ce;
+
 PHP_MINIT_FUNCTION(streams2_context);
 extern zend_class_entry *php_streams2_Context_ce;
 extern zend_class_entry *php_streams2_TContext_ce;
@@ -28,6 +31,7 @@ extern zend_class_entry *statbuf_file_interface_ce;
 extern zend_class_entry *stream_interface_ce;
 
 PHP_MINIT_FUNCTION(streams2_stream_interface);
+extern zend_class_entry *php_streams2_Stream_ce;
 PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 PHP_MINIT_FUNCTION(streams2_statbuf_interface);
 PHP_MINIT_FUNCTION(streams2_statbuf_sizable_interface);

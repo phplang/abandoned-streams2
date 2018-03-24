@@ -5,6 +5,7 @@ if test "$PHP_STREAMS2" = "yes"; then
     PHP_NEW_EXTENSION(streams2, streams2.c \
         streams2-context.c \
         streams2-exceptions.c \
+        streams2-file.c \
         streams2-stream-interface.c \
         streams2-wrapper-interface.c \
         streams2-statbuf-interface.c \
