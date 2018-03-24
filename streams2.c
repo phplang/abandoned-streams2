@@ -55,7 +55,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_open, 0, 3, Stream, 0)
     ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, mode, IS_STRING, 0)
     ZEND_ARG_TYPE_INFO(0, options, IS_LONG, 0)
-    ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
+    ZEND_ARG_OBJ_NS_INFO(0, context, "Stream\\Context", 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_transport_register, 0, 2, _IS_BOOL, 0)
