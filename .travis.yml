@@ -4,7 +4,7 @@ php:
   - nightly
 
 before_script:
-  - phpenv config-rm xdebug.ini
+  - if [ "$TRAVIS_PHP_VERSION" != 'nightly' ]; then phpenv config-rm xdebug.ini; fi
 
 install:
   - phpize
