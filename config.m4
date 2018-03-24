@@ -10,5 +10,6 @@ if test "$PHP_STREAMS2" = "yes"; then
         streams2-statbuf-interface.c \
         streams2-statbuf-sizable-interface.c \
         streams2-statbuf-file-interface.c \
-        streams2-statbuf-posixfile-interface.c, $ext_shared)
+        streams2-statbuf-posixfile-interface.c \
+        streams2-statbuf-ntfsfile-interface.c, $ext_shared)
 fi
