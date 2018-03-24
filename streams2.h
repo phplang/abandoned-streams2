@@ -27,11 +27,13 @@ STREAMS2_EXCEPTIONS(X)
 PHP_MINIT_FUNCTION(streams2_stream_interface);
 PHP_MINIT_FUNCTION(streams2_wrapper_interface);
 PHP_MINIT_FUNCTION(streams2_statbuf_interface);
+PHP_MINIT_FUNCTION(streams2_statbuf_sizable_interface);
 
 #define NS_STREAM "Stream"
 #define NS_STREAM_TRANSPORT "Stream\\Transport"
 #define NS_STREAM_WRAPPER "Stream\\Wrapper"
 #define NS_STREAM_CONTEXT "Stream\\Context"
+#define NS_STREAM_STATBUF "Stream\\StatBuf"
 
 #define PHP_STREAMS2_STREAM_SEEK_SET 0
 #define PHP_STREAMS2_STREAM_SEEK_CUR 1

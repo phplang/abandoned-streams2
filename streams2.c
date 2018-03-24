@@ -106,7 +106,8 @@ static PHP_MINIT_FUNCTION(streams2) {
         (SUCCESS == PHP_MINIT(streams2_stream_interface)(INIT_FUNC_ARGS_PASSTHRU)) &&
         (SUCCESS == PHP_MINIT(streams2_wrapper_interface)(INIT_FUNC_ARGS_PASSTHRU)) &&
         (SUCCESS == PHP_MINIT(streams2_context)(INIT_FUNC_ARGS_PASSTHRU)) &&
-        (SUCCESS == PHP_MINIT(streams2_statbuf_interface)(INIT_FUNC_ARGS_PASSTHRU))
+        (SUCCESS == PHP_MINIT(streams2_statbuf_interface)(INIT_FUNC_ARGS_PASSTHRU)) &&
+        (SUCCESS == PHP_MINIT(streams2_statbuf_sizable_interface)(INIT_FUNC_ARGS_PASSTHRU))
         ? SUCCESS : FAILURE;
 }
 
