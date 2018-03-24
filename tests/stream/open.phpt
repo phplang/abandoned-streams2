@@ -4,7 +4,7 @@ Test that a stream can be opened
 <?php
 \ReflectionFunction::export('Stream\Open');
 echo \Stream\Open();
---EXPECT--
+--EXPECTF--
 Function [ <internal:streams2> function Stream\Open ] {
 
   - Parameters [4] {
