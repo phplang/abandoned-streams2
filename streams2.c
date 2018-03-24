@@ -51,41 +51,41 @@ static PHP_NAMED_FUNCTION(stream_wrapper_getWrapper)
     RETURN_STRING("Stream\\Wrapper\\getWrapper() not implemented yet...");
 }
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_open, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, mode)
-    ZEND_ARG_INFO(0, options)
-    ZEND_ARG_INFO(0, context)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_open, 0, 3, Stream, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, mode, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, options, IS_LONG, 0)
+    ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_register, 0)
-    ZEND_ARG_INFO(0, scheme)
-    ZEND_ARG_INFO(0, factory)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_transport_register, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, factory, IS_CALLABLE, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_unregister, 0)
-    ZEND_ARG_INFO(0, scheme)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_transport_unregister, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_transport_exists, 0)
-    ZEND_ARG_INFO(0, scheme)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_transport_exists, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_register, 0)
-    ZEND_ARG_INFO(0, scheme)
-    ZEND_ARG_INFO(0, factory)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_register, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, factory, IS_CALLABLE, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_unregister, 0)
-    ZEND_ARG_INFO(0, scheme)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_unregister, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_exists, 0)
-    ZEND_ARG_INFO(0, scheme)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_exists, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_getWrapper, 0)
-    ZEND_ARG_INFO(0, scheme)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_getWrapper, 0, 1, Stream\\Wrapper, 0)
+    ZEND_ARG_TYPE_INFO(0, scheme, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
 static zend_function_entry streams2_functions[] = {
@@ -100,106 +100,140 @@ static zend_function_entry streams2_functions[] = {
     PHP_FE_END
 };
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_interface_read, 0)
-    ZEND_ARG_INFO(0, maxbytes)
+ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_interface_construct, 0, 0, 1)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_interface_write, 0)
-    ZEND_ARG_INFO(0, data)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_getName, 0, 0, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_interface_seek, 0)
-    ZEND_ARG_INFO(0, pos)
-    ZEND_ARG_INFO(0, whence)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_getUri, 0, 0, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_interface_setOption, 0)
-    ZEND_ARG_INFO(0, option)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_isOpen, 0, 0, _IS_BOOL, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_read, 0, 0, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, maxbytes, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_write, 0, 1, IS_LONG, 0)
+    ZEND_ARG_TYPE_INFO(0, data, IS_STRING, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_flush, 0, 0, _IS_BOOL, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_close, 0, 0, IS_VOID, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_seek, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, pos, IS_LONG, 0)
+    ZEND_ARG_TYPE_INFO(0, whence, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_isSeekable, 0, 0, _IS_BOOL, 0)
+ZEND_END_ARG_INFO()
+
+// @todo this should have return type \Stream\StatBuf but does not exist yet
+ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_interface_stat, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_setOption, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, option, IS_STRING, 0)
     ZEND_ARG_INFO(0, value)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_interface_getStream, 0, 0, Stream, 0)
 ZEND_END_ARG_INFO()
 
 static zend_class_entry *stream_interface_ce = NULL;
 static zend_function_entry stream_interface_methods[] = {
-    PHP_ABSTRACT_ME(Stream, __construct, NULL)
-    PHP_ABSTRACT_ME(Stream, getName, NULL)
-    PHP_ABSTRACT_ME(Stream, getUri, NULL)
-    PHP_ABSTRACT_ME(Stream, isOpen, NULL)
+    PHP_ABSTRACT_ME(Stream, __construct, arginfo_stream_interface_construct)
+    PHP_ABSTRACT_ME(Stream, getName, arginfo_stream_interface_getName)
+    PHP_ABSTRACT_ME(Stream, getUri, arginfo_stream_interface_getUri)
+    PHP_ABSTRACT_ME(Stream, isOpen, arginfo_stream_interface_isOpen)
     PHP_ABSTRACT_ME(Stream, read, arginfo_stream_interface_read)
     PHP_ABSTRACT_ME(Stream, write, arginfo_stream_interface_write)
-    PHP_ABSTRACT_ME(Stream, flush, NULL)
-    PHP_ABSTRACT_ME(Stream, close, NULL)
+    PHP_ABSTRACT_ME(Stream, flush, arginfo_stream_interface_flush)
+    PHP_ABSTRACT_ME(Stream, close, arginfo_stream_interface_close)
     PHP_ABSTRACT_ME(Stream, seek, arginfo_stream_interface_seek)
-    PHP_ABSTRACT_ME(Stream, isSeekable, NULL)
-    PHP_ABSTRACT_ME(Stream, stat, NULL)
+    PHP_ABSTRACT_ME(Stream, isSeekable, arginfo_stream_interface_isSeekable)
+    PHP_ABSTRACT_ME(Stream, stat, arginfo_stream_interface_stat)
     PHP_ABSTRACT_ME(Stream, setOption, arginfo_stream_interface_setOption)
-    PHP_ABSTRACT_ME(Stream, getStream, NULL)
+    PHP_ABSTRACT_ME(Stream, getStream, arginfo_stream_interface_getStream)
     PHP_FE_END
 };
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_open, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, mode)
-    ZEND_ARG_INFO(0, context)
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_wrapper_getName, 0, 0, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_opendir, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, flags)
-    ZEND_ARG_INFO(0, context)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_open, 0, 2, Stream, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, mode, IS_STRING, 0)
+    ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_stat, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, flags)
-    ZEND_ARG_INFO(0, context)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_opendir, 0, 1, Stream, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, flags, IS_LONG, 0)
+    ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_unlink, 0)
-    ZEND_ARG_INFO(0, uri)
+// @todo this should have return type \Stream\StatBuf but does not exist yet
+ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_wrapper_stat, 0, 0, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, flags, IS_LONG, 0)
+    ZEND_ARG_INFO(0, context) // @todo should be \Stream\Context interface but does not exist yet
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_move, 0)
-    ZEND_ARG_INFO(0, from)
-    ZEND_ARG_INFO(0, to)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_unlink, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_copy, 0)
-    ZEND_ARG_INFO(0, from)
-    ZEND_ARG_INFO(0, to)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_move, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, from, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, to, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_mkdir, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, recursive)
-    ZEND_ARG_INFO(0, mode)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_copy, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, from, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, to, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_rmdir, 0)
-    ZEND_ARG_INFO(0, uri)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_mkdir, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, recursive, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, mode, IS_LONG, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_touch, 0)
-    ZEND_ARG_INFO(0, touch)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_rmdir, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_chmod, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, mode)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_touch, 0, 1, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_chusr, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, user)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_chmod, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, mode, IS_LONG, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_stream_wrapper_chgrp, 0)
-    ZEND_ARG_INFO(0, uri)
-    ZEND_ARG_INFO(0, group)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_chusr, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, user, IS_STRING, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_stream_wrapper_chgrp, 0, 2, _IS_BOOL, 0)
+    ZEND_ARG_TYPE_INFO(0, uri, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, group, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
 static zend_class_entry *wrapper_interface_ce = NULL;
 static zend_function_entry wrapper_interface_methods[] = {
-    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, getName, NULL)
+    PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, getName, arginfo_stream_wrapper_getName)
     PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, open, arginfo_stream_wrapper_open)
     PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, opendir, arginfo_stream_wrapper_opendir)
     PHP_NS_ABSTRACT_ME(NS_STREAM, Wrapper, stat, arginfo_stream_wrapper_stat)
