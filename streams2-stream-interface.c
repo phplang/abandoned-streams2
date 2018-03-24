@@ -41,7 +41,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_stream_interface_stat, 0, 0, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_stream_interface_setOption, 0, 2, _IS_BOOL, 0)
-    ZEND_ARG_TYPE_INFO(0, option, IS_STRING, 0)
+    ZEND_ARG_TYPE_INFO(0, option, IS_LONG, 0)
     ZEND_ARG_INFO(0, value)
 ZEND_END_ARG_INFO()
 
