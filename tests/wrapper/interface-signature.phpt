@@ -33,7 +33,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
       - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
         Parameter #1 [ <required> string $mode ]
-        Parameter #2 [ <optional> $context ]
+        Parameter #2 [ <optional> Stream\Context or NULL $context ]
       }
       - Return [ Stream ]
     }
@@ -43,7 +43,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
       - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
         Parameter #1 [ <optional> int%S $flags ]
-        Parameter #2 [ <optional> $context ]
+        Parameter #2 [ <optional> Stream\Context or NULL $context ]
       }
       - Return [ Stream ]
     }
@@ -53,7 +53,7 @@ Interface [ <internal:streams2> interface Stream\Wrapper ] {
       - Parameters [3] {
         Parameter #0 [ <required> string $uri ]
         Parameter #1 [ <optional> int%S $flags ]
-        Parameter #2 [ <optional> $context ]
+        Parameter #2 [ <optional> Stream\Context or NULL $context ]
       }
     }
 

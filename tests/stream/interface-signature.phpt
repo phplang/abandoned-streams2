@@ -25,7 +25,7 @@ Interface [ <internal:streams2> interface Stream ] {
 
       - Parameters [2] {
         Parameter #0 [ <required> string $uri ]
-        Parameter #1 [ <optional> $context ]
+        Parameter #1 [ <optional> Stream\Context or NULL $context ]
       }
     }
 
